@@ -1,0 +1,41 @@
+:root{
+  --bg:#0f1226;
+  --panel:#1a1f3a;
+  --accent:#3fd6ff;
+  --accent2:#ff4d6d;
+  --text:#e8f0ff;
+  --muted:#9fb3c8;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color:var(--text);
+  background: radial-gradient(1200px 600px at 20% 10%, #101535 10%, #0b0e22 60%), var(--bg);
+}
+.game-shell{display:flex;flex-direction:column;min-height:100%}
+.hud{display:flex;gap:16px;align-items:center;justify-content:center;padding:12px 16px;background:rgba(26,31,58,.6);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:5}
+.hud .hud-item{font-weight:600;color:var(--text)}
+
+#canvas-wrap{position:relative;flex:1;display:flex;align-items:center;justify-content:center;padding:20px}
+#game{display:block;width:100%;max-width:960px;aspect-ratio: 16/9;background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.45) inset, 0 20px 40px rgba(0,0,0,.35)}
+
+.overlay{position:absolute;inset:0;display:grid;place-items:center;padding:20px;z-index:10}
+.overlay.hidden{display:none}
+.panel{max-width:520px;width:clamp(280px, 60vw, 520px);padding:24px;border-radius:14px;background:linear-gradient(180deg, rgba(26,31,58,.85), rgba(26,31,58,.75));border:1px solid rgba(255,255,255,.10);box-shadow:0 10px 40px rgba(0,0,0,.35);text-align:center;transform:translateY(-6px);opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease}
+.panel.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.panel h1{margin:0 0 8px;font-size:2rem;color:var(--accent)}
+.panel p{margin:0 0 10px;color:var(--muted)}
+.panel button{margin-top:8px;padding:10px 16px;border:none;border-radius:10px;background:linear-gradient(180deg, var(--accent), #2fb7d8);color:#021220;font-weight:700;box-shadow:0 8px 20px rgba(63,214,255,.35);cursor:pointer}
+.panel button:hover{filter:brightness(1.05)}
+.hint{font-size:.9rem}
+
+.footer{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:12px;color:var(--muted);border-top:1px solid rgba(255,255,255,.08)}
+
+@media (max-width: 640px){
+  .hud{gap:10px}
+  .hud .hud-item{font-size:.95rem}
+  .panel h1{font-size:1.6rem}
+  #game{max-width:100%;aspect-ratio: 3/4}
+}

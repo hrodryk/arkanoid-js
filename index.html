@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arkanoid JS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="game-shell">
+    <header class="hud">
+      <div class="hud-item">Score: <span id="score">0</span></div>
+      <div class="hud-item">Level: <span id="level">1</span></div>
+      <div class="hud-item">Lives: <span id="lives">3</span></div>
+    </header>
+
+    <div id="canvas-wrap">
+      <canvas id="game"></canvas>
+      <div id="overlay" class="overlay">
+        <div id="start" class="panel visible">
+          <h1>Arkanoid</h1>
+          <p>Move the paddle with Arrow keys, A/D or your mouse.</p>
+          <p>Break all bricks to advance levels. Catch power-ups!</p>
+          <button id="startBtn">Start Game</button>
+          <p class="hint">Tip: Click Start to enable sound.</p>
+        </div>
+        <div id="gameover" class="panel">
+          <h1>Game Over</h1>
+          <p>Your score: <span id="finalScore">0</span></p>
+          <button id="restartBtn">Restart</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div>Power-ups: Multi-ball, Paddle size, Speed mods, Extra life</div>
+      <div>Pause: P</div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
